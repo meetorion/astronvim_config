@@ -6,7 +6,7 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.debugging" },
-  { import = "astrocommunity.note-taking.neorg" },
+  -- { import = "astrocommunity.note-taking.neorg" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.scala" },
