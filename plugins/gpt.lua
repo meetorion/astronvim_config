@@ -91,8 +91,8 @@ local config = {
     },
   },
   -- directory for storing chat files
-  -- chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
-  chat_dir = "~/syncspace/obsidian/gp/chats",
+  chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
+  -- chat_dir = "//syncspace/obsidian/gp/chats",
   -- chat user prompt prefix
   chat_user_prefix = "🗨:",
   -- chat assistant prompt prefix (static string or a table {static, template})
@@ -253,7 +253,8 @@ local config = {
 }
 return {
   "robitx/gp.nvim",
-  cmd = { "GpChatNew", "GpChatFinder", "GpChatToggle", "GpChatStop", "GpChatDelete" },
+  event = "VeryLazy",
+  -- cmd = { "GpChatNew", "GpChatFinder", "GpChatToggle", "GpChatStop", "GpChatDelete" },
   opts = config,
   -- config = function()
   --   require("gp").setup(config)
