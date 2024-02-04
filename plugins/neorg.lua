@@ -1,7 +1,7 @@
 return {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
-  dependencies = { "nvim-lua/plenary.nvim"},
+  dependencies = { "nvim-lua/plenary.nvim" },
   requires = "john-cena/cool-neorg-plugin",
   event = "VeryLazy",
   opts = {
@@ -22,7 +22,8 @@ return {
           },
         },
       },
-      ["core.summary"] = {}
+      ["core.summary"] = {},
+      ["core.ui"] = {},
       -- ["external.kanban"] = {},
     },
   },
