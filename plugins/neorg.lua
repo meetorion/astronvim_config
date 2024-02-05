@@ -18,7 +18,7 @@ return {
       ["core.dirman"] = { -- Manages Neorg workspaces
         config = {
           workspaces = {
-            work = "~/syncspace/obsidian/work",
+            work = "~/Repos/dotfile/obsidian/work",
           },
         },
       },
