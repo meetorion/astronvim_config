@@ -2,15 +2,16 @@
 
 local prompts = {
   -- Code related prompts
-  Explain = "Please  explain how the following code works.",
-  Review = "Please  review the following code and provide suggestions for improvement.",
-  Tests = "Please explain how the selected code works, then generate unit tests for it.",
-  Refactor = "Please  refactor the following code to improve its clarity and readability.",
+  Explain = "Please explain how the following code works.用中文回复.",
+  DocString = "Please write a pandas format docstring for the following code.用中文回复.",
+  Review = "Please review the following code and provide suggestions for improvement.用中文回复.",
+  Tests = "Please explain how the selected code works, then generate unit tests for it.用中文回复.",
+  Refactor = "Pleasere factor the following code to improve its clarity and readability.用中文回复.",
   -- Text related prompts
-  Summarize = "Please summarize the following text.",
-  Spelling = "Please correct any grammar and spelling errors in the following text.",
-  Wording = "Please improve the grammar and wording of the following text.",
-  Concise = "Please rewrite the following text to make it more concise.",
+  Summarize = "Please summarize the following text.用中文回复.",
+  Spelling = "Please correct any grammar and spelling errors in the following text.用中文回复.",
+  Wording = "Please improve the grammar and wording of the following text.用中文回复.",
+  Concise = "Please rewrite the following text to make it more concise.用中文回复.",
 }
 
 return {
@@ -19,7 +20,7 @@ return {
   {
     -- dir = IS_DEV and "~/Projects/research/CopilotChat.nvim" or nil,
     -- "CopilotC-Nvim/CopilotChat.nvim",
-    "jellydn/CopilotChat.nvim",
+    "meetorion/CopilotChat.nvim",
     opts = {
       mode = "split",
       prompts = prompts,
