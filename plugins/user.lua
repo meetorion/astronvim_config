@@ -13,11 +13,6 @@ return {
     config = function() require("copilot").setup() end,
   },
   {
-    "sidebar-nvim/sidebar.nvim",
-    event = "VeryLazy",
-    config = function() require("sidebar-nvim").setup() end,
-  },
-  {
     "piersolenski/telescope-import.nvim",
     event = "VeryLazy",
     dependencies = "nvim-telescope/telescope.nvim",
