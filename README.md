@@ -34,3 +34,5 @@ git clone https://github.com/meetorion/astronvim_config ~/.config/nvim/lua/user
 ```shell
 nvim
 ```
+## AI插件
+目前支持gp.nvim、neoai.nvim、CodeGPT等。
