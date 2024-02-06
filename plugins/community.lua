@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
@@ -21,4 +22,5 @@ return {
   { import = "astrocommunity.colorscheme" },
   { import = "astrocommunity.search.nvim-hlslens" },
   { import = "astrocommunity.git.git-blame-nvim" },
+  { import = "astrocommunity.lsp" },
 }

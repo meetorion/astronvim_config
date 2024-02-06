@@ -1,8 +1,7 @@
 return {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  requires = "john-cena/cool-neorg-plugin",
+  dependencies = { "nvim-lua/plenary.nvim", { "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } } },
   event = "VeryLazy",
   opts = {
     load = {
@@ -18,12 +17,25 @@ return {
       ["core.dirman"] = { -- Manages Neorg workspaces
         config = {
           workspaces = {
-            work = "~/syncspace/obsidian/work",
+            work = "~/Repos/dotfile/obsidian/work",
           },
         },
       },
       ["core.summary"] = {},
       ["core.ui"] = {},
+      ["external.templates"] = {
+        config = {
+          templates_dir = "~/Repos/dotfile/obsidian/work/journal/templates",
+        },
+        -- templates_dir = vim.fn.stdpath("config") .. "/templates/norg",
+        -- default_subcommand = "add", -- or "fload", "load"
+        -- keywords = { -- Add your own keywords.
+        --   EXAMPLE_KEYWORD = function ()
+        --     return require("luasnip").insert_node(1, "default text blah blah")
+        --   end,
+        -- },
+        -- snippets_overwrite = {},
+      },
       -- ["external.kanban"] = {},
     },
   },

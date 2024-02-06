@@ -2,15 +2,15 @@
 
 local prompts = {
   -- Code related prompts
-  Explain = "Please use chinese explain how the following code works.用中文回复我.",
-  Review = "Please use chinese review the following code and provide suggestions for improvement.",
-  Tests = "Please use chinese explain how the selected code works, then generate unit tests for it.用中文回复我.",
-  Refactor = "Please use chinese refactor the following code to improve its clarity and readability.用中文回复我.",
+  Explain = "Please  explain how the following code works.",
+  Review = "Please  review the following code and provide suggestions for improvement.",
+  Tests = "Please explain how the selected code works, then generate unit tests for it.",
+  Refactor = "Please  refactor the following code to improve its clarity and readability.",
   -- Text related prompts
-  Summarize = "Please summarize the following text.用中文回复我.",
-  Spelling = "Please correct any grammar and spelling errors in the following text.用中文回复我.",
-  Wording = "Please improve the grammar and wording of the following text.用中文回复我.",
-  Concise = "Please rewrite the following text to make it more concise.用中文回复我.",
+  Summarize = "Please summarize the following text.",
+  Spelling = "Please correct any grammar and spelling errors in the following text.",
+  Wording = "Please improve the grammar and wording of the following text.",
+  Concise = "Please rewrite the following text to make it more concise.",
 }
 
 return {
@@ -18,6 +18,7 @@ return {
   -- { import = "lazyvim.plugins.extras.coding.copilot" },
   {
     -- dir = IS_DEV and "~/Projects/research/CopilotChat.nvim" or nil,
+    -- "CopilotC-Nvim/CopilotChat.nvim",
     "jellydn/CopilotChat.nvim",
     opts = {
       mode = "split",

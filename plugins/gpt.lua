@@ -257,6 +257,6 @@ local config = {
 return {
   "robitx/gp.nvim",
   event = "VeryLazy",
-  -- cmd = { "GpChatNew", "GpChatFinder", "GpChatToggle", "GpChatStop", "GpChatDelete" },
+  cmd = { "GpChatNew", "GpChatFinder", "GpChatToggle", "GpChatStop", "GpChatDelete" },
   opts = config,
 }
