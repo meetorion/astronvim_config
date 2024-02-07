@@ -172,7 +172,7 @@ local defaults = {
   },
 }
 return {
-  "jackMort/ChatGPT.nvim",
+  "meetorion/ChatGPT.nvim",
   cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun" },
   dependencies = {
     "MunifTanjim/nui.nvim",

@@ -23,26 +23,5 @@ return {
     -- event = "VeryLazy",
     config = function() require("codeium").setup {} end,
   },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   event = { "VimEnter" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("copilot").setup {
-  --         -- plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
-  --       }
-  --     end, 1000)
-  --   end,
-  -- },
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   after = { "copilot.lua" },
-  --   config = function()
-  --     require("copilot_cmp").setup {
-  --       formatters = {
-  --         insert_text = require("copilot_cmp.format").remove_existing,
-  --       },
-  --     }
-  --   end,
-  -- },
+  { "sindrets/diffview.nvim", event = "VeryLazy" },
 }
