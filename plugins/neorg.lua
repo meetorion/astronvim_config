@@ -1,7 +1,11 @@
 return {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
-  dependencies = { "nvim-lua/plenary.nvim", { "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } } },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "laher/neorg-exec" },
+    { "pysan3/neorg-templates", dependencies = { "L3MON4D3/LuaSnip" } },
+  },
   event = "VeryLazy",
   opts = {
     load = {
@@ -36,6 +40,7 @@ return {
         -- },
         -- snippets_overwrite = {},
       },
+      ["external.exec"] = {},
       -- ["external.kanban"] = {},
     },
   },

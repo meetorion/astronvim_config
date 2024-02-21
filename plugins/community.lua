@@ -10,6 +10,23 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.scala" },
   { import = "astrocommunity.pack.java" },
+  {
+    "mfussenegger/nvim-jdtls",
+    opts = {
+      settings = {
+        java = {
+          configuration = {
+            runtimes = {
+              {
+                name = "JavaSE-11",
+                path = "/usr/lib/jvm/java-11-openjdk/",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.rust" },

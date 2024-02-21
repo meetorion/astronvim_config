@@ -9,7 +9,7 @@ local config = {
     -- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
     -- min_width and max_width can be a list of mixed types.
     -- max_width = {40, 0.2} means "the lesser of 40 columns or 20% of total"
-    max_width = { 40, 0.2 },
+    max_width = { 80, 0.3 },
     width = nil,
     min_width = 10,
 
@@ -90,7 +90,7 @@ local config = {
   lazy_load = true,
 
   -- Disable aerial on files with this many lines
-  disable_max_lines = 10000,
+  disable_max_lines = 100000,
 
   -- Disable aerial on files this size or larger (in bytes)
   disable_max_size = 20000000, -- Default 2MB
