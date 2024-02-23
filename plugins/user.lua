@@ -13,15 +13,15 @@ return {
     dependencies = "nvim-telescope/telescope.nvim",
     config = function() require("telescope").load_extension "import" end,
   },
-  {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    event = { "VimEnter" },
-    -- event = "VeryLazy",
-    config = function() require("codeium").setup {} end,
-  },
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   event = { "VimEnter" },
+  --   -- event = "VeryLazy",
+  --   config = function() require("codeium").setup {} end,
+  -- },
   { "sindrets/diffview.nvim", event = "VeryLazy" },
 }
