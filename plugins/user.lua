@@ -25,4 +25,12 @@ return {
   --   config = function() require("codeium").setup {} end,
   -- },
   { "sindrets/diffview.nvim", event = "VeryLazy" },
+  -- lazy.nvim
+  {
+    "shuntaka9576/preview-asciidoc.vim",
+    -- event = "VeryLazy",
+    dependencies = {
+      "vim-denops/denops.vim",
+    },
+  },
 }
