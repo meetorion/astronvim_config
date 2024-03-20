@@ -85,6 +85,36 @@ local config = {
   --   return tostring(os.time()) .. "-" .. suffix
   -- end,
 
+  -- Optional, customize how note IDs are generated given an optional title.
+  ---@param title string|?
+  ---@return string
+  note_id_func = function(title)
+    -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+    -- In this case a note with the title 'My new note' will be given an ID that looks
+    -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+    local suffix = ""
+    if title ~= nil then
+      -- If title is given, transform it into valid file name.
+      -- suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+      suffix = title
+    else
+      -- If title is nil, just add 4 random uppercase letters to the suffix.
+      for _ = 1, 4 do
+        suffix = suffix .. string.char(math.random(65, 90))
+      end
+    end
+    -- return tostring(os.time()) .. "-" .. suffix
+    return suffix
+  end,
+
+  -- Optional, customize how note file names are generated given the ID, target directory, and title.
+  ---@param spec { id: string, dir: obsidian.Path, title: string|? }
+  ---@return string|obsidian.Path The full path to the new note.
+  note_path_func = function(spec)
+    -- This is equivalent to the default behavior.
+    local path = spec.dir / tostring(spec.id)
+    return path:with_suffix ".md"
+  end,
   -- Optional, customize how wiki links are formatted.
   ---@param opts {path: string, label: string, id: string|?}
   ---@return string
@@ -116,7 +146,7 @@ local config = {
   -- Optional, boolean or a function that takes a filename and returns a boolean.
   -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
   disable_frontmatter = true,
-    -- Optional, alternatively you can customize the frontmatter data.
+  -- Optional, alternatively you can customize the frontmatter data.
   ---@return table
   note_frontmatter_func = function(note)
     -- Add the title of the note as an alias.
@@ -149,8 +179,8 @@ local config = {
   ---@param url string
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
-    vim.fn.jobstart { "open", url } -- Mac OS
-    -- vim.fn.jobstart({"xdg-open", url})  -- linux
+    -- vim.fn.jobstart { "open", url } -- Mac OS
+    vim.fn.jobstart { "xdg-open", url } -- linux
   end,
 
   -- Optional, set to true if you use the Obsidian Advanced URI plugin.
