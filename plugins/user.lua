@@ -40,7 +40,9 @@ return {
   {
     "rest-nvim/rest.nvim",
     ft = "http",
+    event = "VeryLazy",
     dependencies = { "luarocks.nvim" },
-    config = function() require("rest-nvim").setup() end,
+    config = function() require("rest-nvim").setup {} end,
   },
+  { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
 }
