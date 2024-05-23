@@ -19,7 +19,7 @@ return {
             runtimes = {
               {
                 name = "JavaSE-11",
-                path = "/usr/lib/jvm/java-11-openjdk/",
+                path = "$HOME/.sdkman/candidates/java/11.0.23-zulu/",
               },
             },
           },
@@ -30,14 +30,15 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.remote-development.distant-nvim" },
   { import = "astrocommunity.code-runner.compiler-nvim" },
   { import = "astrocommunity.test.neotest" },
-  { import = "astrocommunity.colorscheme" },
+  -- { import = "astrocommunity.colorscheme.lua/astrocommunity/colorscheme/tokyonight-nvim" },
   { import = "astrocommunity.search.nvim-hlslens" },
   { import = "astrocommunity.git.git-blame-nvim" },
-  { import = "astrocommunity.lsp" },
+  -- { import = "astrocommunity.lsp" },
 }

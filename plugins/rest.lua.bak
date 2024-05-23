@@ -1,0 +1,5 @@
+return {
+  "rest-nvim/rest.nvim",
+  event = "VeryLazy",
+  dependencies = { "luarocks.nvim" },
+}

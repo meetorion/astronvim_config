@@ -33,16 +33,32 @@ return {
       "vim-denops/denops.vim",
     },
   },
-  {
-    "vhyrro/luarocks.nvim",
-    config = function() require("luarocks").setup {} end,
-  },
-  {
-    "rest-nvim/rest.nvim",
-    ft = "http",
-    event = "VeryLazy",
-    dependencies = { "luarocks.nvim" },
-    config = function() require("rest-nvim").setup {} end,
-  },
+  -- {
+  --   "vhyrro/luarocks.nvim",
+  --   config = function() require("luarocks").setup {} end,
+  -- },
+  -- {
+  --   "rest-nvim/rest.nvim",
+  --   ft = "http",
+  --   event = "VeryLazy",
+  --   dependencies = { "luarocks.nvim" },
+  --   config = function() require("rest-nvim").setup {} end,
+  -- },
   { "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" },
+  {
+    "kndndrj/nvim-dbee",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    event = "VeryLazy",
+    build = function()
+      -- Install tries to automatically detect the install method.
+      -- if it fails, try calling it with one of these parameters:
+      --    "curl", "wget", "bitsadmin", "go"
+      require("dbee").install()
+    end,
+    config = function()
+      require("dbee").setup(--[[optional config]])
+    end,
+  },
 }
