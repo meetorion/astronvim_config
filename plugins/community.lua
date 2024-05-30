@@ -8,25 +8,25 @@ return {
   { import = "astrocommunity.debugging" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.go" },
-  { import = "astrocommunity.pack.scala" },
-  { import = "astrocommunity.pack.java" },
-  {
-    "mfussenegger/nvim-jdtls",
-    opts = {
-      settings = {
-        java = {
-          configuration = {
-            runtimes = {
-              {
-                name = "JavaSE-11",
-                path = "$HOME/.sdkman/candidates/java/11.0.23-zulu/",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
+  -- { import = "astrocommunity.pack.scala" },
+  -- { import = "astrocommunity.pack.java" },
+  -- {
+  --   "mfussenegger/nvim-jdtls",
+  --   opts = {
+  --     settings = {
+  --       java = {
+  --         configuration = {
+  --           runtimes = {
+  --             {
+  --               name = "JavaSE-11",
+  --               path = "$HOME/.sdkman/candidates/java/11.0.23-zulu/",
+  --             },
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.rust" },
