@@ -8,7 +8,7 @@ return {
   { import = "astrocommunity.debugging" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.go" },
-  -- { import = "astrocommunity.pack.scala" },
+  { import = "astrocommunity.pack.scala" },
   -- { import = "astrocommunity.pack.java" },
   -- {
   --   "mfussenegger/nvim-jdtls",
