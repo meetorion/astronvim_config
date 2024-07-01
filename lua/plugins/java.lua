@@ -31,7 +31,7 @@ return {
       },
       jdk = {
         -- Choose whether to install jdk automatically using mason.nvim
-        auto_install = false,
+        auto_install = true,
       },
     }
     require("lspconfig").jdtls.setup {

@@ -8,6 +8,41 @@ return {
 
   -- == Examples of Adding Plugins ==
   {
+    "renerocksai/telekasten.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telekasten").setup {
+        home = vim.fn.expand "~/zettelkasten", -- Put the name of your notes directory here
+      }
+    end,
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      -- ...
+    end,
+  },
+  {
+    "TobinPalmer/pastify.nvim",
+    cmd = { "Pastify" },
+    config = function()
+      require("pastify").setup {
+        opts = {
+          apikey = "90649fc12c3e49232e4d5a01ad3ac228", -- Needed if you want to save online.
+        },
+      }
+    end,
+  },
+  -- { "gelguy/wilder.nvim", config = function() require("wilder").setup { modes = { ":", "/", "?" } } end },
+  {
     "metakirby5/codi.vim",
     event = "VeryLazy",
     opts = {},
