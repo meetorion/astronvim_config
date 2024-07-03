@@ -7,6 +7,11 @@
 return {
 
   -- == Examples of Adding Plugins ==
+  -- using packer.nvim
+  {
+    "nmac427/guess-indent.nvim",
+    config = function() require("guess-indent").setup {} end,
+  },
   {
     "renerocksai/telekasten.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
