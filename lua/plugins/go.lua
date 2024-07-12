@@ -25,14 +25,14 @@ local config = {
     -- to start the process in a random available port
     port = "${port}",
     -- additional args to pass to dlv
-    args = {"4 0"},
+    args = {},
     -- the build flags that are passed to delve.
     -- defaults to empty string, but can be used to provide flags
     -- such as "-tags=unit" to make sure the test suite is
     -- compiled during debugging, for example.
     -- passing build flags using args is ineffective, as those are
     -- ignored by delve in dap mode.
-    build_flags = "-v -ldflags \"-s -w -X 'google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=warn'\"",
+    build_flags = "",
     -- whether the dlv process to be created detached or not. there is
     -- an issue on Windows where this needs to be set to false
     -- otherwise the dlv server creation will fail.
