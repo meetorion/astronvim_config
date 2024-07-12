@@ -13,7 +13,7 @@ local config = {
     },
     {
       name = "work",
-      path = "~/vaults/work",
+      path = "~/personalspace/obsidian/work",
     },
   },
 
