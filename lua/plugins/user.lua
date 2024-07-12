@@ -8,6 +8,7 @@ return {
 
   -- == Examples of Adding Plugins ==
   -- using packer.nvim
+  "h-hg/fcitx.nvim",
   {
     "nmac427/guess-indent.nvim",
     config = function() require("guess-indent").setup {} end,
@@ -46,7 +47,6 @@ return {
       }
     end,
   },
-  -- { "gelguy/wilder.nvim", config = function() require("wilder").setup { modes = { ":", "/", "?" } } end },
   {
     "metakirby5/codi.vim",
     event = "VeryLazy",
