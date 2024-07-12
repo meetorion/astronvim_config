@@ -77,3 +77,7 @@ paru -S imagemagick
 
 ## neovim配置obsidian
 
+## vim esc插件
+```lua
+'h-hg/fcitx.nvim'
+```
