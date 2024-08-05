@@ -18,7 +18,7 @@ local config = {
   -- openai_api_endpoint = "https://api.chatanywhere.com.cn/v1/chat/completions",
 
   -- openai_api_endpoint = "http://127.0.0.1:8080/v1/chat/completions",
-  openai_api_endpoint = os.getenv "OPENAI_API_ENDPOINT",
+  -- openai_api_endpoint = os.getenv "OPENAI_API_ENDPOINT",
   -- openai_api_endpoint = "https://api.openai.com/v1/chat/completions",
   -- openai_api_endpoint = "https://$URL.openai.azure.com/openai/deployments/{{model}}/chat/completions?api-version=2023-03-15-preview",
   -- prefix for all commands
