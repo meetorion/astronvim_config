@@ -4,6 +4,7 @@ local prompts = {
   -- Code related prompts
   Explain = "Please explain how the following code works.用中文回复.",
   DocString = "Please write a pandas format docstring for the following code.用中文回复.",
+  GolangDocString = "Please write a golang format docstring for the following code.用中文回复.",
   Review = "Please review the following code and provide suggestions for improvement.用中文回复.",
   Tests = "Please explain how the selected code works, then generate unit tests for it.用中文回复.",
   Refactor = "Pleasere factor the following code to improve its clarity and readability.用中文回复.",
