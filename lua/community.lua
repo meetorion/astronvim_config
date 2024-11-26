@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.typescript" },
-  -- { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.vue" },
   -- { import = "astrocommunity.pack.scala" },
   { import = "astrocommunity.quickfix" },
