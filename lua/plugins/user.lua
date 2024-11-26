@@ -16,7 +16,7 @@ return {
         -- For customization, refer to Install > Configuration in the Documentation/Readme
         providers = {
           openai = {
-            endpoint = "https://api.openai.com/v1/chat/completions",
+            endpoint = os.getenv "OPENAI_API_ENDPOINT",
             secret = os.getenv "OPENAI_API_KEY",
           },
 
