@@ -4,28 +4,26 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    -- add any opts here
-    provider = "copilot",
+    provider = "deepseek",
+    vendors = {
+      deepseek = {
+        __inherited_from = "openai",
+        api_key_name = "DEEPSEEK_API_KEY",
+        endpoint = "https://api.deepseek.com",
+        model = "deepseek-coder",
+      },
+    },
+    --
     -- provider = "openai",
-    -- auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
     -- openai = {
-    --   endpoint = "https://api.deepseek.com/v1",
-    --   model = "deepseek-chat",
-    --   timeout = 30000, -- Timeout in milliseconds
-    --   temperature = 0,
+    --   endpoint = "https://openrouter.ai/api/v1",
+    --   model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+    --   timeout = 30000, -- timeout in milliseconds
+    --   temperature = 0, -- adjust if needed
     --   max_tokens = 4096,
-    --   ["local"] = false,
+    --   reasoning_effort = "high", -- only supported for "o" models
     -- },
   },
-  -- opts = {
-  --   provider = "openai",
-  --   deepseek = {
-  --     endpoint = "https://api.deepseek.com",
-  --     model = "deepseek-coder",
-  --     temperature = 0,
-  --     max_tokens = 4096,
-  --   },
-  -- },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
