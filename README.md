@@ -8,7 +8,7 @@ A template for getting started with [AstroNvim](https://github.com/AstroNvim/Ast
 
 #### Make a backup of your current nvim and shared folder
 
-```shell
+```bash
 mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 mv ~/.local/state/nvim ~/.local/state/nvim.bak
@@ -23,13 +23,13 @@ You can also just clone this repository directly if you do not want to track you
 
 #### Clone the repository
 
-```shell
+```bash
 git clone git@github.com:meetorion/astronvim_config.git ~/.config/nvim
 ```
 
 #### Start Neovim
 
-```shell
+```bash
 nvim
 ```
 
