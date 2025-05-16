@@ -5,12 +5,17 @@ return {
   opts = {
     provider = "openai",
     openai = {
-      endpoint = "https://openrouter.ai/api/v1/",
-      api_key_name = os.getenv "OPENROUTER_API_KEY",
-      model = "anthropic/claude-3.7-sonnet",
-      timeout = 30000, -- 超时时间（毫秒）
-      temperature = 0,
-      max_tokens = 8192,
+      endpoint = "https://openrouter.ai/api/v1",
+      api_key = os.getenv "OPENAI_API_KEY", -- 使用 OPENAI_API_KEY 环境变量
+      model = "anthropic/claude-3-5-sonnet", -- 更新为正确的模型名称
+      timeout = 60000, -- 增加超时时间到60秒
+      temperature = 0.1,
+      max_tokens = 4096,
+      -- 添加 OpenRouter 所需的头信息
+      http_headers = {
+        ["HTTP-Referer"] = "https://neovim.io",
+        ["X-Title"] = "Neovim Avante",
+      },
     },
     -- 自定义快捷键
     keymaps = {
