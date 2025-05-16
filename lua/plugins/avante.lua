@@ -4,13 +4,21 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "deepseek",
-    cursor_applying_provider = "deepseek", -- In this example, use Groq for applying, but you can also use any provider you want.
+    -- provider = "deepseek",
+    provider = "openrouter",
+    cursor_applying_provider = "openrouter", -- In this example, use Groq for applying, but you can also use any provider you want.
     behaviour = {
       --- ... existing behaviours
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
     vendors = {
+      openrouter = {
+        __inherited_from = "openai",
+        endpoint = "https://openrouter.ai/api/v1",
+        api_key_name = "OPENROUTER_API_KEY",
+        -- model = "deepseek/deepseek-r1",
+        model = "anthropic/claude-3.5-sonnet",
+      },
       deepseek = {
         __inherited_from = "openai",
         api_key_name = "DEEPSEEK_API_KEY",
