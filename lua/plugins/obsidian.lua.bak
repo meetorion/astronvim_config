@@ -11,10 +11,10 @@ local config = {
       name = "life",
       path = "~/personalspace/obsidian/life",
     },
-    -- {
-    --   name = "work",
-    --   path = "~/vaults/work",
-    -- },
+    {
+      name = "work",
+      path = "~/vaults/work",
+    },
   },
 
   -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
