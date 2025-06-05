@@ -23,13 +23,14 @@ return {
       --- ... existing behaviours
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
-    vendors = {
+    providers = {
       openrouter = {
         __inherited_from = "openai",
         endpoint = "https://openrouter.ai/api/v1",
         api_key_name = "OPENROUTER_API_KEY",
         -- model = "deepseek/deepseek-r1",
-        model = "anthropic/claude-3.5-sonnet",
+        -- model = "anthropic/claude-3.5-sonnet",
+        model = "anthropic/claude-sonnet-4",
       },
       deepseek = {
         __inherited_from = "openai",
