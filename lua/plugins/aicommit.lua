@@ -15,23 +15,6 @@ return {
           model = "google/gemini-flash-1.5-8b",
           -- model = "microsoft/phi-3-mini-128k-instruct",
           auto_push = true, -- whether to automatically push after commit
-          commit_template = [[
-You are a senior software engineer creating commit messages.
-
-Analyze this git diff and create 5 concise commit messages following these rules:
-1. Use imperative mood (e.g., "Add feature" not "Added feature")
-2. Keep the first line under 50 characters
-3. Focus on the "why" not the "what"
-4. Use conventional commit format: type(scope): description
-
-Git diff:
-%s
-
-Recent commits for context:
-%s
-
-Generate exactly 5 commit messages following the above guidelines:
-    ]],
         },
       }
     end,
