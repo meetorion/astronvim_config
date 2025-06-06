@@ -19,9 +19,11 @@ return {
     -- provider = "deepseek",
     provider = "openrouter",
     cursor_applying_provider = "openrouter", -- In this example, use Groq for applying, but you can also use any provider you want.
+    auto_suggestions_provider = "openrouter",
     behaviour = {
       --- ... existing behaviours
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
+      auto_suggestions = true,
     },
     providers = {
       openrouter = {
