@@ -50,18 +50,18 @@ return {
     end,
   },
   -- == Examples of Adding Plugins ==
-  {
-    "rmagatti/auto-session",
-    lazy = false,
-
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
-    opts = {
-      suppressed_dirs = { "~/", "~/workspace", "~/learnspace", "/" },
-      -- log_level = 'debug',
-    },
-  },
+  -- {
+  --   "rmagatti/auto-session",
+  --   lazy = false,
+  --
+  --   ---enables autocomplete for opts
+  --   ---@module "auto-session"
+  --   ---@type AutoSession.Config
+  --   opts = {
+  --     suppressed_dirs = { "~/", "~/workspace", "~/learnspace", "/" },
+  --     -- log_level = 'debug',
+  --   },
+  -- },
   -- lazy.nvim
   {
     "robitx/gp.nvim",
@@ -142,13 +142,13 @@ return {
       }
     end,
   },
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1001, -- this plugin needs to run before anything else
-    opts = {
-      rocks = { "magick" },
-    },
-  },
+  -- {
+  --   "vhyrro/luarocks.nvim",
+  --   priority = 1001, -- this plugin needs to run before anything else
+  --   opts = {
+  --     rocks = { "magick" },
+  --   },
+  -- },
   -- {
   --   "3rd/image.nvim",
   --   dependencies = { "luarocks.nvim" },
