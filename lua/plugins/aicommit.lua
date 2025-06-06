@@ -11,7 +11,7 @@ return {
           openrouter_api_key = os.getenv "OPENROUTER_API_KEY", -- or set OPENROUTER_API_KEY environment variable
           -- model = "qwen/qwen-2.5-72b-instruct:free", -- default model
           model = "anthropic/claude-3.5-sonnet",
-          auto_push = false, -- whether to automatically push after commit
+          auto_push = true, -- whether to automatically push after commit
         },
       }
     end,
