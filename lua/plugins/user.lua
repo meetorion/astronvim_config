@@ -149,13 +149,13 @@ return {
       rocks = { "magick" },
     },
   },
-  {
-    "3rd/image.nvim",
-    dependencies = { "luarocks.nvim" },
-    config = function()
-      -- ...
-    end,
-  },
+  -- {
+  --   "3rd/image.nvim",
+  --   dependencies = { "luarocks.nvim" },
+  --   config = function()
+  --     -- ...
+  --   end,
+  -- },
   {
     "TobinPalmer/pastify.nvim",
     cmd = { "Pastify" },
