@@ -32,7 +32,8 @@ return {
         api_key_name = "OPENROUTER_API_KEY",
         -- model = "deepseek/deepseek-r1",
         -- model = "anthropic/claude-3.5-sonnet",
-        model = "anthropic/claude-sonnet-4",
+        model = "anthropic/claude-opus-4",
+        -- model = "anthropic/claude-sonnet-4",
       },
       deepseek = {
         __inherited_from = "openai",
@@ -52,7 +53,7 @@ return {
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
+    "zbirenbaum/copilot.lua",      -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",

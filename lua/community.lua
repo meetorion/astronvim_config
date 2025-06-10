@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.project.project-nvim" },
   -- { import = "astrocommunity.pack.vue" },
   -- { import = "astrocommunity.pack.scala" },
   { import = "astrocommunity.quickfix" },
