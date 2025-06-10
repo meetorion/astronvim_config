@@ -14,7 +14,7 @@ return {
   { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.project.project-nvim" },
   -- { import = "astrocommunity.pack.vue" },
-  -- { import = "astrocommunity.pack.scala" },
+  { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.quickfix" },
   { import = "astrocommunity.debugging.nvim-chainsaw" },
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
