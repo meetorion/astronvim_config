@@ -23,23 +23,32 @@ return {
     behaviour = {
       --- ... existing behaviours
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
-      auto_suggestions = true,
+      auto_suggestions = false,
     },
     providers = {
+      aihubmix = {
+        model = "claude-sonnet-4-20250514",
+      },
       openrouter = {
         __inherited_from = "openai",
         endpoint = "https://openrouter.ai/api/v1",
         api_key_name = "OPENROUTER_API_KEY",
         -- model = "deepseek/deepseek-r1",
         -- model = "anthropic/claude-3.5-sonnet",
-        model = "anthropic/claude-opus-4",
-        -- model = "anthropic/claude-sonnet-4",
+        -- model = "anthropic/claude-opus-4",
+        model = "anthropic/claude-sonnet-4",
       },
-      deepseek = {
+      deepseek_reasoner = {
         __inherited_from = "openai",
         api_key_name = "DEEPSEEK_API_KEY",
         endpoint = "https://api.deepseek.com",
-        model = "deepseek-coder",
+        model = "deepseek-reasoner",
+      },
+      deepseek_chat = {
+        __inherited_from = "openai",
+        api_key_name = "DEEPSEEK_API_KEY",
+        endpoint = "https://api.deepseek.com",
+        model = "deepseek-reasoner",
       },
     },
   },
