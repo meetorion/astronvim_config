@@ -8,12 +8,12 @@ local config = {
 
   workspaces = {
     {
-      name = "life",
-      path = "~/personalspace/obsidian/life",
+      name = "sigvoid",
+      path = "~/work/tara",
     },
     {
-      name = "work",
-      path = "~/vaults/work",
+      name = "frr",
+      path = "~/Repos/frr",
     },
   },
 
@@ -55,8 +55,8 @@ local config = {
       action = function() return require("obsidian").util.gf_passthrough() end,
       opts = { noremap = false, expr = true, buffer = true },
     },
-    -- Toggle check-boxes.
-    ["<leader>ch"] = {
+    -- Toggle check-boxes - changed from <leader>ch to <leader>ot to avoid conflicts
+    ["<leader>ot"] = {
       action = function() return require("obsidian").util.toggle_checkbox() end,
       opts = { buffer = true },
     },
@@ -196,10 +196,10 @@ local config = {
     -- Optional, configure key mappings for the picker. These are the defaults.
     -- Not all pickers support all mappings.
     mappings = {
-      -- Create a new note from your query.
-      new = "<C-x>",
-      -- Insert a link to the selected note.
-      insert_link = "<C-l>",
+      -- Create a new note from your query - changed from <C-x> to <C-n> to avoid conflicts
+      new = "<C-n>",
+      -- Insert a link to the selected note - changed from <C-l> to <C-i> to avoid conflicts
+      insert_link = "<C-i>",
     },
   },
 
@@ -299,6 +299,6 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
   },
-  -- event = "VeryLazy",
+  event = "VeryLazy",
   opts = config,
 }

@@ -140,3 +140,20 @@ nvim
 ```bash
 conda env create -f environment.yml
 ```
+
+## 效率插件推荐
+
+### tmux集成
+
+- [tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+- [tmux-resizer](https://github.com/christoomey/vim-tmux-resizer)
+
+### cpp开发
+
+- [clangd](https://github.com/clangd/clangd)
+- [clang-format](https://github.com/clangd/clang-format)
+- [clang-tidy](https://github.com/clangd/clang-tidy)
+
+### Augment.nvim配置
+
+- [Augment.nvim](https://github.com/zbirenbaum/augment.nvim)

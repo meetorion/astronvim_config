@@ -51,19 +51,19 @@ return {
         model = "deepseek-reasoner",
       },
     },
-    rag_service = { -- RAG Service configuration
-      enabled = false, -- Enables the RAG service
-      host_mount = os.getenv "HOME", -- Host mount path for the rag service (Docker will mount this path)
-      runner = "docker", -- Runner for the RAG service (can use docker or nix)
-      llm = { -- Language Model (LLM) configuration for RAG service
-        provider = "openrouter", -- LLM provider
+    rag_service = {                     -- RAG Service configuration
+      enabled = false,                  -- Enables the RAG service
+      host_mount = os.getenv "HOME",    -- Host mount path for the rag service (Docker will mount this path)
+      runner = "docker",                -- Runner for the RAG service (can use docker or nix)
+      llm = {                           -- Language Model (LLM) configuration for RAG service
+        provider = "openrouter",        -- LLM provider
         endpoint = "https://openrouter.ai/api/v1",
         api_key = "OPENROUTER_API_KEY", -- Environment variable name for the LLM API key
         model = "anthropic/claude-sonnet-4",
-        extra = nil, -- Additional configuration options for LLM
+        extra = nil,                    -- Additional configuration options for LLM
       },
-      embed = { -- Embedding model configuration for RAG service
-        provider = "openrouter", -- LLM provider
+      embed = {                         -- Embedding model configuration for RAG service
+        provider = "openrouter",        -- LLM provider
         endpoint = "https://openrouter.ai/api/v1",
         api_key = "OPENROUTER_API_KEY", -- Environment variable name for the LLM API key
         model = "anthropic/claude-sonnet-4",
@@ -71,9 +71,46 @@ return {
         -- endpoint = "https://api.openai.com/v1", -- Embedding API endpoint
         -- api_key = "OPENAI_API_KEY", -- Environment variable name for the embedding API key
         -- model = "text-embedding-3-large", -- Embedding model name
-        extra = nil, -- Additional configuration options for the embedding model
+        extra = nil,          -- Additional configuration options for the embedding model
       },
       docker_extra_args = "", -- Extra arguments to pass to the docker command
+    },
+    {
+      custom_tools = {
+        {
+          name = "run_go_tests",                                -- Unique name for the tool
+          description = "Run Go unit tests and return results", -- Description shown to AI
+          command = "go test -v ./...",                         -- Shell command to execute
+          param = {                                             -- Input parameters (optional)
+            type = "table",
+            fields = {
+              {
+                name = "target",
+                description = "Package or directory to test (e.g. './pkg/...' or './internal/pkg')",
+                type = "string",
+                optional = true,
+              },
+            },
+          },
+          returns = { -- Expected return values
+            {
+              name = "result",
+              description = "Result of the fetch",
+              type = "string",
+            },
+            {
+              name = "error",
+              description = "Error message if the fetch was not successful",
+              type = "string",
+              optional = true,
+            },
+          },
+          func = function(params, on_log, on_complete) -- Custom function to execute
+            local target = params.target or "./..."
+            return vim.fn.system(string.format("go test -v %s", target))
+          end,
+        },
+      },
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -86,7 +123,7 @@ return {
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
+    "zbirenbaum/copilot.lua",      -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
