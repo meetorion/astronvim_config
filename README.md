@@ -56,6 +56,34 @@ A template for getting started with [AstroNvim](https://github.com/AstroNvim/Ast
 - **功能**: 支持 MCP 协议，增强 AI 工具的互操作性
 - **集成**: 与 Avante 深度集成，支持斜杠命令
 
+##### 如何在 Avante 中使用 MCPHub
+
+**配置说明**:
+- 已配置自动将 MCP 服务器状态添加到 Avante 系统提示
+- 提供 `use_mcp_tool` 和 `access_mcp_resource` 自定义工具
+- 支持 `/mcp:server_name:prompt_name` 斜杠命令
+
+**使用步骤**:
+1. **启动 MCP 服务器**: 使用 `:MCPHub` 命令打开 UI，启动需要的服务器
+2. **在 Avante 中对话**: 打开 Avante 聊天 (`<leader>aa`)，MCP 工具会自动集成
+3. **使用斜杠命令**: 输入 `/mcp:` 查看可用的 MCP 提示命令
+4. **工具调用**: Avante 会在需要时自动调用 MCP 工具
+
+**自动批准配置**:
+- **全局自动批准**: 在 MCPHub UI 中按 `ga` 切换
+- **服务器级别**: 按 `a` 在服务器行切换自动批准
+- **工具级别**: 按 `a` 在单个工具上切换自动批准
+
+**工具冲突处理**:
+如果使用 MCPHub 内置工具，建议在 Avante 配置中禁用重复工具：
+```lua
+disabled_tools = {
+  "list_files", "search_files", "read_file", 
+  "create_file", "rename_file", "delete_file",
+  "create_dir", "rename_dir", "delete_dir", "bash"
+}
+```
+
 ### 代码执行和预览
 
 #### Code Runner
