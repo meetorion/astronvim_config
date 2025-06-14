@@ -51,6 +51,30 @@ return {
         model = "deepseek-reasoner",
       },
     },
+    rag_service = { -- RAG Service configuration
+      enabled = false, -- Enables the RAG service
+      host_mount = os.getenv "HOME", -- Host mount path for the rag service (Docker will mount this path)
+      runner = "docker", -- Runner for the RAG service (can use docker or nix)
+      llm = { -- Language Model (LLM) configuration for RAG service
+        provider = "openrouter", -- LLM provider
+        endpoint = "https://openrouter.ai/api/v1",
+        api_key = "OPENROUTER_API_KEY", -- Environment variable name for the LLM API key
+        model = "anthropic/claude-sonnet-4",
+        extra = nil, -- Additional configuration options for LLM
+      },
+      embed = { -- Embedding model configuration for RAG service
+        provider = "openrouter", -- LLM provider
+        endpoint = "https://openrouter.ai/api/v1",
+        api_key = "OPENROUTER_API_KEY", -- Environment variable name for the LLM API key
+        model = "anthropic/claude-sonnet-4",
+        -- provider = "openai", -- Embedding provider
+        -- endpoint = "https://api.openai.com/v1", -- Embedding API endpoint
+        -- api_key = "OPENAI_API_KEY", -- Environment variable name for the embedding API key
+        -- model = "text-embedding-3-large", -- Embedding model name
+        extra = nil, -- Additional configuration options for the embedding model
+      },
+      docker_extra_args = "", -- Extra arguments to pass to the docker command
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
@@ -62,7 +86,7 @@ return {
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua",      -- for providers='copilot'
+    "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
