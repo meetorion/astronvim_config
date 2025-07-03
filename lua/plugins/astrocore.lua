@@ -32,6 +32,14 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        -- File handling optimizations
+        hidden = true, -- allow hidden buffers
+        updatetime = 300, -- faster completion (default 4000ms)
+        timeoutlen = 500, -- timeout for mapped sequences
+        -- Reduce file watching overhead
+        swapfile = false, -- disable swap files
+        backup = false, -- disable backup files
+        writebackup = false, -- disable writebackup
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

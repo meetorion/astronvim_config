@@ -22,6 +22,8 @@ return {
     auto_suggestions_provider = "copilot", -- In",
     behaviour = {
       --- ... existing behaviours
+      ---
+      auto_approve_tool_permissions = true,
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
       auto_suggestions = false,
     },
@@ -74,6 +76,18 @@ return {
         extra = nil,          -- Additional configuration options for the embedding model
       },
       docker_extra_args = "", -- Extra arguments to pass to the docker command
+    },
+    disabled_tools = {
+      "list_files", -- Built-in file operations
+      "search_files",
+      "read_file",
+      "create_file",
+      "rename_file",
+      "delete_file",
+      "create_dir",
+      "rename_dir",
+      "delete_dir",
+      -- "bash", -- Built-in terminal access
     },
     {
       custom_tools = {

@@ -51,10 +51,39 @@ A template for getting started with [AstroNvim](https://github.com/AstroNvim/Ast
 - **功能**: 使用 AI 自动生成 Git 提交信息
 - **支持模型**: Qwen、Claude、DeepSeek、Gemini 等
 
-#### 6. MCPHub - 模型上下文协议
+#### 6. CodeCompanion - 多模态 AI 编程助手
+
+- **功能**: 支持文本、代码和图像的多模态 AI 交互
+- **特色**: 与 MCPHub 深度集成，提供增强的工具访问
+- **优势**: 
+  - 多模态输入支持（文本、代码、图像）
+  - 丰富的预设提示模板
+  - 灵活的聊天和内联编辑模式
+  - 支持多种 AI 提供商
+
+#### 7. CopilotChat - GitHub Copilot 聊天界面
+
+- **功能**: GitHub Copilot 的聊天界面，专注于代码相关任务
+- **快捷键**: 使用 `<leader>cc` 前缀避免与 Avante 冲突
+  - `<leader>ccp` - 提示动作选择
+  - `<leader>cce` - 解释代码
+  - `<leader>cct` - 生成测试
+  - `<leader>ccr` - 代码审查
+  - `<leader>ccR` - 重构代码
+  - `<leader>ccn` - 改进命名
+  - `<leader>cci` - 自定义提问
+  - `<leader>ccm` - 生成提交信息
+  - `<leader>ccf` - 修复诊断错误
+  - `<leader>ccT` - 切换聊天窗口
+- **优势**: 
+  - 专为代码任务优化
+  - 丰富的预设提示模板
+  - 支持可视化选择和内联编辑
+
+#### 8. MCPHub - 模型上下文协议
 
 - **功能**: 支持 MCP 协议，增强 AI 工具的互操作性
-- **集成**: 与 Avante 深度集成，支持斜杠命令
+- **集成**: 与 Avante、CodeCompanion 深度集成，支持斜杠命令
 
 ##### 如何在 Avante 中使用 MCPHub
 
@@ -86,6 +115,113 @@ disabled_tools = {
   "create_file", "rename_file", "delete_file",
   "create_dir", "rename_dir", "delete_dir", "bash"
 }
+```
+
+## 🚀 AI 编程工作流最佳实践
+
+### 多 AI 助手协同使用策略
+
+本配置提供了多个 AI 编程助手，每个都有其独特优势。以下是推荐的使用策略：
+
+#### 1. 按场景选择 AI 助手
+
+**🎯 实时代码生成和补全 - 使用 Avante**
+- **场景**: 边写代码边获得智能建议
+- **快捷键**: `<leader>aa` 打开侧边栏，`<M-l>` 接受建议
+- **优势**: 类似 Cursor AI IDE 的流畅体验，支持多种模型
+- **最佳用途**: 新功能开发、代码框架搭建
+
+**🔧 专业代码任务 - 使用 CopilotChat**
+- **场景**: 需要针对性的代码分析和优化
+- **快捷键**: `<leader>cc*` 系列命令
+- **优势**: 专门优化的代码任务模板
+- **最佳用途**: 
+  - 代码审查 (`<leader>ccr`)
+  - 生成测试 (`<leader>cct`) 
+  - 代码重构 (`<leader>ccR`)
+  - 解释复杂逻辑 (`<leader>cce`)
+
+**💬 多模态交互 - 使用 CodeCompanion**
+- **场景**: 需要处理图像、复杂对话或自定义工作流
+- **优势**: 支持图像输入、灵活的对话模式
+- **最佳用途**: 架构设计讨论、需求分析、多媒体内容处理
+
+**🔄 协作式编程 - 使用 Aider**
+- **场景**: 大型重构、跨文件修改
+- **快捷键**: `<leader>A*` 系列命令
+- **优势**: 整个项目上下文感知
+- **最佳用途**: 重大功能变更、代码库现代化
+
+#### 2. 工作流组合示例
+
+**🏗️ 新功能开发流程**
+```
+1. Avante (`<leader>aa`) - 生成初始代码框架
+2. CopilotChat (`<leader>cct`) - 为新功能生成测试
+3. CopilotChat (`<leader>ccr`) - 审查生成的代码
+4. AI Commit - 自动生成规范的提交信息
+```
+
+**🐛 Bug 修复流程**
+```
+1. CopilotChat (`<leader>ccf`) - 分析诊断错误
+2. Avante - 实时修复代码
+3. CopilotChat (`<leader>cct`) - 生成回归测试
+4. Code Runner (`<leader>e`) - 验证修复效果
+```
+
+**🔄 代码重构流程**
+```
+1. CopilotChat (`<leader>ccr`) - 分析现有代码质量
+2. Aider (`<leader>A/`) - 执行大规模重构
+3. CopilotChat (`<leader>ccn`) - 改进变量和函数命名
+4. CopilotChat (`<leader>cct`) - 更新相关测试
+```
+
+**📚 学习和理解代码流程**
+```
+1. CopilotChat (`<leader>cce`) - 解释复杂代码段
+2. CodeCompanion - 深入讨论架构设计
+3. Avante - 生成相似模式的示例代码
+```
+
+#### 3. 高级技巧
+
+**🔗 MCPHub 工具链增强**
+- 启动 MCPHub (`:MCPHub`) 为所有 AI 助手提供文件系统、Git、Web 搜索等工具
+- 在 Avante 中使用 `/mcp:` 斜杠命令访问外部数据
+- CodeCompanion 自动集成 MCP 工具，提供更丰富的上下文
+
+**⚡ 快速切换策略**
+- 使用 `<leader>aa` 快速启动 Avante 进行实时编程
+- 选中代码后用 `<leader>ccp` 选择 CopilotChat 预设任务
+- 复杂问题时切换到 CodeCompanion 进行深度对话
+
+**🎨 个性化配置**
+- 根据项目类型调整 AI 模型选择
+- 为常用工作流创建自定义快捷键
+- 利用 which-key 提示记忆快捷键组合
+
+#### 4. 性能优化建议
+
+**📊 模型选择策略**
+- **快速迭代**: 使用 DeepSeek Chat (速度快，成本低)
+- **复杂推理**: 使用 Claude Sonnet 4 (质量高)
+- **代码专业性**: 使用 GitHub Copilot (专门训练)
+
+**⚙️ 工具配置优化**
+- 启用 MCP 工具的自动批准以提高效率
+- 根据项目大小调整上下文窗口
+- 合理配置各工具的快捷键避免冲突
+
+**🔧 环境变量配置**
+确保设置所有必要的 API Keys 以获得最佳体验：
+```bash
+export OPENROUTER_API_KEY=your_key      # CodeCompanion, Avante 备用
+export ANTHROPIC_API_KEY=your_key       # Claude 模型
+export DEEPSEEK_API_KEY=your_key        # DeepSeek 模型  
+export GITHUB_TOKEN=your_token          # Copilot, GitHub 集成
+export BRAVE_API_KEY=your_key           # MCP Web 搜索 (可选)
 ```
 
 ### 代码执行和预览
@@ -120,20 +256,20 @@ disabled_tools = {
 
 ### 环境要求
 
-为了使用 AI 功能，需要设置以下环境变量：
+为了使用完整的 AI 功能，建议设置以下环境变量（详细配置见下方工作流最佳实践）：
 
 ```bash
-# OpenRouter API Key (用于 Avante 和 AI Commit)
-export OPENROUTER_API_KEY=your_openrouter_api_key
+# 主要 AI 提供商
+export DEEPSEEK_API_KEY=your_deepseek_api_key       # 主要模型，性价比高
+export ANTHROPIC_API_KEY=your_anthropic_api_key     # Claude 系列模型
+export OPENROUTER_API_KEY=your_openrouter_api_key   # 多模型接入点
 
-# Anthropic API Key (用于 Claude)
-export ANTHROPIC_API_KEY=your_anthropic_api_key
+# GitHub 集成
+export GITHUB_TOKEN=your_github_token               # Copilot 和 Git 集成
 
-# DeepSeek API Key
-export DEEPSEEK_API_KEY=your_deepseek_api_key
-
-# OpenAI API Key (用于 ChatGPT)
-export OPENAI_API_KEY=your_openai_api_key
+# 可选增强功能
+export OPENAI_API_KEY=your_openai_api_key          # ChatGPT 和 OpenAI 模型
+export BRAVE_API_KEY=your_brave_api_key            # MCP Web 搜索功能
 ```
 
 ## 🛠️ Installation

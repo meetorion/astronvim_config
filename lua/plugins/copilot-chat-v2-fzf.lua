@@ -28,6 +28,7 @@ return {
     opts = {
       spec = {
         { "<leader>a", group = "ai" },
+        { "<leader>cc", group = "Copilot Chat" },
         { "<leader>gm", group = "Copilot Chat" },
       },
     },
@@ -145,7 +146,7 @@ return {
     keys = {
       -- Show prompts actions
       {
-        "<leader>ap",
+        "<leader>ccp",
         function()
           require("CopilotChat").select_prompt {
             context = {
@@ -156,33 +157,33 @@ return {
         desc = "CopilotChat - Prompt actions",
       },
       {
-        "<leader>ap",
+        "<leader>ccp",
         function() require("CopilotChat").select_prompt() end,
         mode = "x",
         desc = "CopilotChat - Prompt actions",
       },
       -- Code related commands
-      { "<leader>ae", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-      { "<leader>at", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
-      { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
-      { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
-      { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
+      { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+      { "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+      { "<leader>ccr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+      { "<leader>ccR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
+      { "<leader>ccn", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
       -- Chat with Copilot in visual mode
       {
-        "<leader>av",
+        "<leader>ccv",
         ":CopilotChatVisual",
         mode = "x",
         desc = "CopilotChat - Open in vertical split",
       },
       {
-        "<leader>ax",
+        "<leader>ccx",
         ":CopilotChatInline",
         mode = "x",
         desc = "CopilotChat - Inline chat",
       },
       -- Custom input for CopilotChat
       {
-        "<leader>ai",
+        "<leader>cci",
         function()
           local input = vim.fn.input "Ask Copilot: "
           if input ~= "" then vim.cmd("CopilotChat " .. input) end
@@ -191,13 +192,13 @@ return {
       },
       -- Generate commit message based on the git diff
       {
-        "<leader>am",
+        "<leader>ccm",
         "<cmd>CopilotChatCommit<cr>",
         desc = "CopilotChat - Generate commit message for all changes",
       },
       -- Quick chat with Copilot
       {
-        "<leader>aq",
+        "<leader>ccq",
         function()
           local input = vim.fn.input "Quick Chat: "
           if input ~= "" then vim.cmd("CopilotChatBuffer " .. input) end
@@ -205,15 +206,15 @@ return {
         desc = "CopilotChat - Quick chat",
       },
       -- Fix the issue with diagnostic
-      { "<leader>af", "<cmd>CopilotChatFixError<cr>", desc = "CopilotChat - Fix Diagnostic" },
+      { "<leader>ccf", "<cmd>CopilotChatFixError<cr>", desc = "CopilotChat - Fix Diagnostic" },
       -- Clear buffer and chat history
-      { "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
+      { "<leader>ccl", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
       -- Toggle Copilot Chat Vsplit
-      { "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
+      { "<leader>ccT", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
       -- Copilot Chat Models
-      { "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Select Models" },
+      { "<leader>cc?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Select Models" },
       -- Copilot Chat Agents
-      { "<leader>aa", "<cmd>CopilotChatAgents<cr>", desc = "CopilotChat - Select Agents" },
+      { "<leader>cca", "<cmd>CopilotChatAgents<cr>", desc = "CopilotChat - Select Agents" },
     },
   },
 }
