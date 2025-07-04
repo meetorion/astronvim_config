@@ -2,21 +2,21 @@ local IS_DEV = false
 
 local prompts = {
   -- Code related prompts
-  Explain = "Please explain how the following code works.",
-  Review = "Please review the following code and provide suggestions for improvement.",
-  Tests = "Please explain how the selected code works, then generate unit tests for it.",
-  Refactor = "Please refactor the following code to improve its clarity and readability.",
-  FixCode = "Please fix the following code to make it work as intended.",
-  FixError = "Please explain the error in the following text and provide a solution.",
-  BetterNamings = "Please provide better names for the following variables and functions.",
-  Documentation = "Please provide documentation for the following code.",
-  SwaggerApiDocs = "Please provide documentation for the following API using Swagger.",
-  SwaggerJsDocs = "Please write JSDoc for the following API using Swagger.",
+  Explain = "请用中文解释以下代码的工作原理。",
+  Review = "请用中文审查以下代码并提供改进建议。",
+  Tests = "请用中文解释选定代码的工作原理，然后为其生成单元测试。",
+  Refactor = "请用中文重构以下代码以提高其清晰度和可读性。",
+  FixCode = "请用中文修复以下代码使其按预期工作。",
+  FixError = "请用中文解释以下文本中的错误并提供解决方案。",
+  BetterNamings = "请用中文为以下变量和函数提供更好的名称。",
+  Documentation = "请用中文为以下代码提供文档。",
+  SwaggerApiDocs = "请用中文使用 Swagger 为以下 API 提供文档。",
+  SwaggerJsDocs = "请用中文使用 Swagger 为以下 API 编写 JSDoc。",
   -- Text related prompts
-  Summarize = "Please summarize the following text.",
-  Spelling = "Please correct any grammar and spelling errors in the following text.",
-  Wording = "Please improve the grammar and wording of the following text.",
-  Concise = "Please rewrite the following text to make it more concise.",
+  Summarize = "请用中文总结以下文本。",
+  Spelling = "请用中文纠正以下文本中的语法和拼写错误。",
+  Wording = "请用中文改进以下文本的语法和措辞。",
+  Concise = "请用中文重写以下文本使其更简洁。",
 }
 
 return {
@@ -56,6 +56,8 @@ return {
       error_header = "## Error ",
       prompts = prompts,
       -- model = "claude-3.7-sonnet",
+      -- 设置系统消息确保所有回复都使用中文
+      system_prompt = "你是一个AI编程助手。请始终用中文回答用户的问题。当用户询问代码相关问题时，请用中文解释，并在需要时提供代码示例。",
       mappings = {
         -- Use tab for completion
         complete = {
@@ -185,7 +187,7 @@ return {
       {
         "<leader>cci",
         function()
-          local input = vim.fn.input "Ask Copilot: "
+          local input = vim.fn.input "询问 Copilot: "
           if input ~= "" then vim.cmd("CopilotChat " .. input) end
         end,
         desc = "CopilotChat - Ask input",
@@ -200,7 +202,7 @@ return {
       {
         "<leader>ccq",
         function()
-          local input = vim.fn.input "Quick Chat: "
+          local input = vim.fn.input "快速聊天: "
           if input ~= "" then vim.cmd("CopilotChatBuffer " .. input) end
         end,
         desc = "CopilotChat - Quick chat",
