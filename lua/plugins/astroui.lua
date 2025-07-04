@@ -15,10 +15,32 @@ return {
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- Normal = { bg = "#000000" },
+        -- Core transparent background
+        Normal = { bg = "NONE" },
+        NormalNC = { bg = "NONE" },
+        SignColumn = { bg = "NONE" },
+        LineNr = { bg = "NONE" },
+        CursorLineNr = { bg = "NONE" },
+        EndOfBuffer = { bg = "NONE" },
+        -- StatusLine transparency
+        StatusLine = { bg = "NONE" },
+        StatusLineNC = { bg = "NONE" },
+        -- Tabline transparency
+        TabLine = { bg = "NONE" },
+        TabLineFill = { bg = "NONE" },
+        TabLineSel = { bg = "NONE" },
+        -- Floating window transparency
+        NormalFloat = { bg = "NONE" },
+        FloatBorder = { bg = "NONE" },
+        FloatTitle = { bg = "NONE" },
+        -- Popup menu transparency
+        Pmenu = { bg = "NONE" },
+        PmenuSel = { bg = "#3e4451" },
+        PmenuSbar = { bg = "NONE" },
+        PmenuThumb = { bg = "#5c6370" },
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
-        -- Normal = { bg = "#000000" },
+        -- Keep astrodark specific overrides if needed
       },
     },
     -- Icons can be configured throughout the interface

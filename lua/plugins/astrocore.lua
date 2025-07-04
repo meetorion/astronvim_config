@@ -40,6 +40,8 @@ return {
         swapfile = false, -- disable swap files
         backup = false, -- disable backup files
         writebackup = false, -- disable writebackup
+        -- Clipboard integration
+        clipboard = "unnamedplus", -- use system clipboard as default register
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -74,6 +76,27 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+        
+        -- Clipboard mappings
+        ["<Leader>y"] = { '"+y', desc = "Copy to system clipboard" },
+        ["<Leader>Y"] = { '"+Y', desc = "Copy line to system clipboard" },
+        ["<Leader>p"] = { '"+p', desc = "Paste from system clipboard after cursor" },
+        ["<Leader>P"] = { '"+P', desc = "Paste from system clipboard before cursor" },
+        
+        -- Toggle transparency
+        ["<Leader>ut"] = {
+          function()
+            require("transparent").toggle()
+          end,
+          desc = "Toggle transparency",
+        },
+      },
+      -- Visual mode mappings
+      v = {
+        -- Clipboard mappings for visual mode
+        ["<Leader>y"] = { '"+y', desc = "Copy selection to system clipboard" },
+        ["<Leader>d"] = { '"+d', desc = "Cut selection to system clipboard" },
+        ["<Leader>p"] = { '"+p', desc = "Paste from system clipboard (replace selection)" },
       },
     },
   },

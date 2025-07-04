@@ -1,8 +1,8 @@
-# AstroNvim Template
+# AstroNvim AI-Enhanced Configuration
 
 **NOTE:** This is for AstroNvim v4+
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+An AI-enhanced AstroNvim configuration focused on modern development workflows with integrated AI coding assistants, MCP protocol support, and comprehensive language tooling.
 
 ## ✨ 新增功能
 
@@ -256,21 +256,37 @@ export BRAVE_API_KEY=your_key           # MCP Web 搜索 (可选)
 
 ### 环境要求
 
-为了使用完整的 AI 功能，建议设置以下环境变量（详细配置见下方工作流最佳实践）：
+为了使用完整的 AI 功能，建议设置以下环境变量：
 
 ```bash
-# 主要 AI 提供商
+# 必需的 AI 提供商密钥
 export DEEPSEEK_API_KEY=your_deepseek_api_key       # 主要模型，性价比高
 export ANTHROPIC_API_KEY=your_anthropic_api_key     # Claude 系列模型
-export OPENROUTER_API_KEY=your_openrouter_api_key   # 多模型接入点
 
-# GitHub 集成
-export GITHUB_TOKEN=your_github_token               # Copilot 和 Git 集成
+# MCP 服务器所需
+export GITHUB_TOKEN=your_github_personal_access_token  # GitHub 集成
+export BRAVE_API_KEY=your_brave_search_api_key         # Web 搜索（可选）
 
 # 可选增强功能
-export OPENAI_API_KEY=your_openai_api_key          # ChatGPT 和 OpenAI 模型
-export BRAVE_API_KEY=your_brave_api_key            # MCP Web 搜索功能
+export OPENAI_API_KEY=your_openai_api_key              # OpenAI 模型
+export OPENROUTER_API_KEY=your_openrouter_api_key      # OpenRouter 备用
 ```
+
+### MCP 服务器支持
+
+本配置集成了 9 个 MCP 服务器，提供增强的 AI 工具访问：
+
+1. **SuperMemory** - 持久化知识存储
+2. **Filesystem** - 文件系统操作（自动批准）
+3. **Git** - 版本控制操作
+4. **Web Search** - Brave 搜索集成
+5. **SQLite** - 数据库操作
+6. **GitHub** - 仓库管理
+7. **Shell** - 终端命令执行
+8. **Memory** - 会话内存（自动批准）
+9. **Time** - 时间操作（自动批准）
+
+使用 `:MCPHub` 管理服务器，在 Avante 中使用 `/mcp:server:command` 斜杠命令。
 
 ## 🛠️ Installation
 
@@ -301,27 +317,65 @@ git clone git@github.com:meetorion/astronvim_config.git ~/.config/nvim
 nvim
 ```
 
-## 配置
+## 🚀 快速开始
 
-### 安装虚拟环境
+### 1. 设置环境
 
 ```bash
+# 设置 Python 环境（某些插件需要）
 conda env create -f environment.yml
+conda activate arch
+
+# 安装现代化 CLI 工具（推荐，用于最佳 Avante 体验）
+sudo pacman -S --needed eza htop tree dust procs
 ```
 
-## 效率插件推荐
+### 2. 设置 MCP 服务器
 
-### tmux集成
+```bash
+# 安装 MCP 服务器
+npm install -g @supermemory/mcp-server @modelcontextprotocol/server-*
 
-- [tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
-- [tmux-resizer](https://github.com/christoomey/vim-tmux-resizer)
+# 配置环境变量（见上方环境要求）
+# 启动 MCP 服务器
+:MCPHub  # 在 Neovim 中运行
+```
 
-### cpp开发
+### 3. 开始开发
 
-- [clangd](https://github.com/clangd/clangd)
-- [clang-format](https://github.com/clangd/clang-format)
-- [clang-tidy](https://github.com/clangd/clang-tidy)
+- 使用 `<leader>e` 执行代码
+- 使用 `<leader>aa` 启动 Avante AI 助手
+- 使用 `<leader>cc*` 系列命令使用 CopilotChat
+- 使用 `:MCPHub` 管理 MCP 服务器
 
-### Augment.nvim配置
+## 📊 性能优化
 
-- [Augment.nvim](https://github.com/zbirenbaum/augment.nvim)
+### 大文件处理
+- 超过 256KB 或 10,000 行的文件会自动禁用某些功能以提升性能
+- LSP 格式化超时设置为 1000ms
+- Lazy.nvim 自动处理插件安装和更新
+
+### 故障排除
+- 运行 `:checkhealth` 进行诊断
+- 检查环境变量是否正确设置
+- 查看 `mcp-setup.md` 了解详细的 MCP 配置说明
+
+## 🛠️ 架构说明
+
+### 核心文件结构
+- `init.lua` - 引导文件（避免编辑）
+- `lua/lazy_setup.lua` - 主要 Lazy 配置
+- `lua/community.lua` - AstroCommunity 包（Go、Python、TypeScript、Rust、C++）
+- `lua/plugins/` - 自定义插件配置
+- `lua/polish.lua` - 最终设置自定义
+
+### 重要配置文件
+- `lua/plugins/astrocore.lua` - 核心功能和按键绑定
+- `lua/plugins/astrolsp.lua` - LSP 行为和格式化
+- `lua/plugins/avante.lua` - 主要 AI 助手配置
+- `lua/plugins/mcphub.lua` - MCP 协议集成
+- `lua/plugins/codecompanion.lua` - 多模态 AI 助手
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request 来改进这个配置！

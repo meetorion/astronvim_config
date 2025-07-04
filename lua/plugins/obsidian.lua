@@ -8,13 +8,13 @@ local config = {
 
   workspaces = {
     {
-      name = "sigvoid",
-      path = "~/work/tara",
+      name = "note",
+      path = "~/note",
     },
-    {
-      name = "frr",
-      path = "~/Repos/frr",
-    },
+    -- {
+    --   name = "frr",
+    --   path = "~/Repos/frr",
+    -- },
   },
 
   -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
@@ -30,7 +30,7 @@ local config = {
 
   daily_notes = {
     -- Optional, if you keep daily notes in a separate directory.
-    folder = "notes/dailies",
+    folder = "dailies",
     -- Optional, if you want to change the date format for the ID of daily notes.
     date_format = "%Y-%m-%d",
     -- Optional, if you want to change the date format of the default alias of daily notes.
