@@ -3,6 +3,8 @@ return {
   event = "VeryLazy",
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
+  -- Pin to a specific commit to avoid unstable versions
+  -- commit = "stable", -- uncomment and update if needed
   -- system_prompt as function ensures LLM always has latest MCP server state
   -- This is evaluated for every message, even in existing chats
   system_prompt = function()
@@ -26,6 +28,14 @@ return {
       auto_approve_tool_permissions = true,
       enable_cursor_planning_mode = true, -- enable cursor planning mode!
       auto_suggestions = false,
+    },
+    ui = {
+      -- Fix spinner related issues
+      spinner = {
+        enabled = true,
+        frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+        interval = 80,
+      },
     },
     providers = {
       aihubmix = {
@@ -130,6 +140,37 @@ return {
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+  
+  config = function(_, opts)
+    -- Apply temporary fix for spinner_char error
+    pcall(require, "avante_fix")
+    
+    -- Safe setup with error handling
+    local ok, avante = pcall(require, "avante")
+    if not ok then
+      vim.notify("Failed to load avante.nvim", vim.log.levels.ERROR)
+      return
+    end
+    
+    -- Setup with safe defaults
+    local safe_opts = vim.tbl_deep_extend("force", {
+      -- Ensure spinner is properly configured
+      ui = {
+        spinner = {
+          enabled = true,
+          frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+          interval = 80,
+        },
+      },
+    }, opts or {})
+    
+    avante.setup(safe_opts)
+    
+    -- Apply fix after setup as well
+    vim.defer_fn(function()
+      pcall(require, "avante_fix")
+    end, 100)
+  end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
