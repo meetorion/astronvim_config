@@ -60,7 +60,7 @@ return {
         __inherited_from = "openai",
         api_key_name = "DEEPSEEK_API_KEY",
         endpoint = "https://api.deepseek.com",
-        model = "deepseek-reasoner",
+        model = "deepseek-chat",
       },
     },
     rag_service = {                     -- RAG Service configuration
@@ -140,18 +140,18 @@ return {
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-  
+
   config = function(_, opts)
     -- Apply temporary fix for spinner_char error
     pcall(require, "avante_fix")
-    
+
     -- Safe setup with error handling
     local ok, avante = pcall(require, "avante")
     if not ok then
       vim.notify("Failed to load avante.nvim", vim.log.levels.ERROR)
       return
     end
-    
+
     -- Setup with safe defaults
     local safe_opts = vim.tbl_deep_extend("force", {
       -- Ensure spinner is properly configured
@@ -163,13 +163,11 @@ return {
         },
       },
     }, opts or {})
-    
+
     avante.setup(safe_opts)
-    
+
     -- Apply fix after setup as well
-    vim.defer_fn(function()
-      pcall(require, "avante_fix")
-    end, 100)
+    vim.defer_fn(function() pcall(require, "avante_fix") end, 100)
   end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
