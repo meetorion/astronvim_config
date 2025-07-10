@@ -1,19 +1,15 @@
 return {
-  "meetorion/ai-commit.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim", -- optional, for interactive features
-  },
+  dir = "~/work/ai-commit.nvim", -- Path to your local clone
+  dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("ai-commit").setup {
-      -- Claude CLI配置（默认启用）
-      use_claude_cli = true,      -- 默认值
-      claude_cli_config = {
-        model = "sonnet",         -- sonnet (推荐) | opus | haiku
-        fallback_model = "haiku", -- 快速备用模型
-        timeout = 30000,
-        debug = false,
-      },
+      api_provider = "deepseek",
+      deepseek_api_key = vim.env.DEEPSEEK_API_KEY,
+      model = "deepseek-chat",
+      language = "zh",
+
+      -- openrouter_api_key = vim.env.OPENROUTER_API_KEY,
+      -- language = "zh",
     }
   end,
 }

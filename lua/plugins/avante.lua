@@ -18,10 +18,10 @@ return {
     }
   end,
   opts = {
-    -- provider = "deepseek",
-    provider = "copilot",
-    cursor_applying_provider = "copilot",  -- In this example, use Groq for applying, but you can also use any provider you want.
-    auto_suggestions_provider = "copilot", -- In",
+    provider = "deepseek_chat",
+    -- provider = "copilot",
+    cursor_applying_provider = "deepseek_chat", -- In this example, use Groq for applying, but you can also use any provider you want.
+    -- auto_suggestions_provider = "copilot", -- In",
     behaviour = {
       --- ... existing behaviours
       ---
