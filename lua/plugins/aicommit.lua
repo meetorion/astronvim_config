@@ -7,7 +7,7 @@ return {
       deepseek_api_key = vim.env.DEEPSEEK_API_KEY,
       model = "deepseek-chat",
       language = "zh",
-      auto_push = true,
+      auto_push = false,
 
       -- openrouter_api_key = vim.env.OPENROUTER_API_KEY,
       -- language = "zh",

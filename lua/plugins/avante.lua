@@ -18,10 +18,8 @@ return {
     }
   end,
   opts = {
-    provider = "deepseek_chat",
-    -- provider = "copilot",
-    cursor_applying_provider = "deepseek_chat", -- In this example, use Groq for applying, but you can also use any provider you want.
-    -- auto_suggestions_provider = "copilot", -- In",
+    provider = "kimi_k2_128k",
+    cursor_applying_provider = "kimi_k2_128k", -- In this example, use Groq for applying, but you can also use any provider you want.
     behaviour = {
       --- ... existing behaviours
       ---
@@ -50,6 +48,12 @@ return {
         -- model = "anthropic/claude-opus-4",
         model = "anthropic/claude-sonnet-4",
       },
+      kimi_k2_128k = {
+        __inherited_from = "openai",
+        api_key_name = "KIMI_API_KEY",
+        endpoint = "https://api.moonshot.cn/v1",
+        model = "moonshot-v1-auto",
+      },
       deepseek_reasoner = {
         __inherited_from = "openai",
         api_key_name = "DEEPSEEK_API_KEY",
@@ -63,19 +67,19 @@ return {
         model = "deepseek-chat",
       },
     },
-    rag_service = {                     -- RAG Service configuration
-      enabled = false,                  -- Enables the RAG service
-      host_mount = os.getenv "HOME",    -- Host mount path for the rag service (Docker will mount this path)
-      runner = "docker",                -- Runner for the RAG service (can use docker or nix)
-      llm = {                           -- Language Model (LLM) configuration for RAG service
-        provider = "openrouter",        -- LLM provider
+    rag_service = { -- RAG Service configuration
+      enabled = false, -- Enables the RAG service
+      host_mount = os.getenv "HOME", -- Host mount path for the rag service (Docker will mount this path)
+      runner = "docker", -- Runner for the RAG service (can use docker or nix)
+      llm = { -- Language Model (LLM) configuration for RAG service
+        provider = "openrouter", -- LLM provider
         endpoint = "https://openrouter.ai/api/v1",
         api_key = "OPENROUTER_API_KEY", -- Environment variable name for the LLM API key
         model = "anthropic/claude-sonnet-4",
-        extra = nil,                    -- Additional configuration options for LLM
+        extra = nil, -- Additional configuration options for LLM
       },
-      embed = {                         -- Embedding model configuration for RAG service
-        provider = "openrouter",        -- LLM provider
+      embed = { -- Embedding model configuration for RAG service
+        provider = "openrouter", -- LLM provider
         endpoint = "https://openrouter.ai/api/v1",
         api_key = "OPENROUTER_API_KEY", -- Environment variable name for the LLM API key
         model = "anthropic/claude-sonnet-4",
@@ -83,7 +87,7 @@ return {
         -- endpoint = "https://api.openai.com/v1", -- Embedding API endpoint
         -- api_key = "OPENAI_API_KEY", -- Environment variable name for the embedding API key
         -- model = "text-embedding-3-large", -- Embedding model name
-        extra = nil,          -- Additional configuration options for the embedding model
+        extra = nil, -- Additional configuration options for the embedding model
       },
       docker_extra_args = "", -- Extra arguments to pass to the docker command
     },
@@ -102,10 +106,10 @@ return {
     {
       custom_tools = {
         {
-          name = "run_go_tests",                                -- Unique name for the tool
+          name = "run_go_tests", -- Unique name for the tool
           description = "Run Go unit tests and return results", -- Description shown to AI
-          command = "go test -v ./...",                         -- Shell command to execute
-          param = {                                             -- Input parameters (optional)
+          command = "go test -v ./...", -- Shell command to execute
+          param = { -- Input parameters (optional)
             type = "table",
             fields = {
               {
@@ -176,7 +180,7 @@ return {
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua",      -- for providers='copilot'
+    "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
