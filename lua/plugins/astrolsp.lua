@@ -83,10 +83,39 @@ return {
     mappings = {
       n = {
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
+        -- 修复 gd 键位映射
+        gd = {
+          function() 
+            print("LSP: 跳转到定义...")
+            vim.lsp.buf.definition() 
+          end,
+          desc = "Go to definition",
+          cond = "textDocument/definition",
+        },
         gD = {
           function() vim.lsp.buf.declaration() end,
           desc = "Declaration of current symbol",
           cond = "textDocument/declaration",
+        },
+        gi = {
+          function() vim.lsp.buf.implementation() end,
+          desc = "Go to implementation",
+          cond = "textDocument/implementation",
+        },
+        gy = {
+          function() vim.lsp.buf.type_definition() end,
+          desc = "Go to type definition",
+          cond = "textDocument/typeDefinition",
+        },
+        gr = {
+          function() vim.lsp.buf.references() end,
+          desc = "Show references",
+          cond = "textDocument/references",
+        },
+        K = {
+          function() vim.lsp.buf.hover() end,
+          desc = "Show hover documentation",
+          cond = "textDocument/hover",
         },
         ["<Leader>uY"] = {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
