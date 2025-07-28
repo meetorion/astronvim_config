@@ -25,10 +25,22 @@ return {
         -- StatusLine transparency
         StatusLine = { bg = "NONE" },
         StatusLineNC = { bg = "NONE" },
-        -- Tabline transparency
-        TabLine = { bg = "NONE" },
-        TabLineFill = { bg = "NONE" },
-        TabLineSel = { bg = "NONE" },
+        -- Tabline with better visibility
+        TabLine = { 
+          fg = "#abb2bf", 
+          bg = "NONE", 
+          underline = true,
+          sp = "#3e4451"  -- Subtle underline for separation
+        },
+        TabLineFill = { 
+          fg = "#5c6370", 
+          bg = "NONE" 
+        },
+        TabLineSel = { 
+          fg = "#ffffff", 
+          bg = "#3e4451", 
+          bold = true 
+        },
         -- Floating window transparency
         NormalFloat = { bg = "NONE" },
         FloatBorder = { bg = "NONE" },

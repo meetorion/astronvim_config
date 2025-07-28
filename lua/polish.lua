@@ -105,3 +105,13 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
   },
 }
+
+-- Initialize Go filter system with LSP override
+vim.defer_fn(function()
+  local success, go_override = pcall(require, "go_lsp_override")
+  if success then
+    go_override.setup()
+  else
+    vim.notify("⚠️  Go LSP 覆盖初始化失败: " .. tostring(go_override), vim.log.levels.WARN)
+  end
+end, 1000) -- 延迟1秒确保所有LSP配置加载完成

@@ -42,6 +42,19 @@ return {
         writebackup = false, -- disable writebackup
         -- Clipboard integration
         clipboard = "unnamedplus", -- use system clipboard as default register
+        -- Tab and indentation settings
+        tabstop = 2, -- A tab is 2 spaces
+        softtabstop = 2, -- When hitting <BS>, pretend like a tab is removed even if spaces
+        shiftwidth = 2, -- Number of spaces to use for autoindenting
+        expandtab = true, -- Use spaces instead of tabs
+        smarttab = true, -- Use 'shiftwidth' when inserting <Tab>
+        autoindent = true, -- Copy indent from current line when starting a new line
+        smartindent = true, -- Smart autoindenting when starting a new line
+        -- Show whitespace characters (minimal display)
+        list = false, -- Don't show whitespace characters by default
+        listchars = { tab = "  ", trail = "·", extends = "⟩", precedes = "⟨", nbsp = "⦸" },
+        -- Tab line display
+        showtabline = 2, -- Always show tabline
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -89,6 +102,94 @@ return {
             require("transparent").toggle()
           end,
           desc = "Toggle transparency",
+        },
+        
+        -- Toggle whitespace display (for debugging only)
+        ["<Leader>uw"] = {
+          function()
+            vim.opt.list = not vim.opt.list:get()
+            if vim.opt.list:get() then
+              print("Whitespace visible")
+            else
+              print("Whitespace hidden") 
+            end
+          end,
+          desc = "Toggle whitespace display",
+        },
+        
+        -- Toggle gitignored files in NeoTree
+        ["<Leader>ug"] = {
+          function()
+            require("toggle-gitignore").toggle()
+          end,
+          desc = "Toggle gitignored files in NeoTree",
+        },
+        
+        -- Go过滤器切换功能
+        ["<Leader>gt"] = {
+          function()
+            require("go_filter_manager").toggle_tests()
+          end,
+          desc = "切换测试文件显示 (gr/ff)",
+        },
+        
+        ["<Leader>gv"] = {
+          function()
+            require("go_filter_manager").toggle_vendor()
+          end,
+          desc = "切换vendor目录显示 (ff)",
+        },
+        
+        -- 显示当前过滤状态
+        ["<Leader>gs"] = {
+          function()
+            local filter_manager = require("go_filter_manager")
+            local status = filter_manager.get_status_text()
+            local details = string.format(
+              "过滤状态:\n• 测试文件: %s\n• Vendor目录: %s",
+              filter_manager.state.include_tests and "包含" or "排除",
+              filter_manager.state.include_vendor and "包含" or "排除"
+            )
+            
+            vim.notify(details, vim.log.levels.INFO, { title = "Go过滤管理器" })
+          end,
+          desc = "显示Go过滤状态",
+        },
+        
+        -- 调试命令
+        ["<Leader>gd"] = {
+          function()
+            require("debug_go_filter").full_diagnosis()
+          end,
+          desc = "Go过滤器完整诊断",
+        },
+        
+        ["<Leader>gr"] = {
+          function()
+            require("debug_go_filter").manual_filtered_references()
+          end,
+          desc = "手动触发过滤引用查找",
+        },
+        
+        ["<Leader>gR"] = {
+          function()
+            require("debug_go_filter").reload_config()
+          end,
+          desc = "重新加载Go过滤配置",
+        },
+        
+        ["<Leader>gD"] = {
+          function()
+            require("go_filter_manager").toggle_debug()
+          end,
+          desc = "切换Go过滤器调试模式",
+        },
+        
+        ["<Leader>gT"] = {
+          function()
+            require("test_go_filter").run_all_tests()
+          end,
+          desc = "运行Go过滤器测试套件",
         },
       },
       -- Visual mode mappings

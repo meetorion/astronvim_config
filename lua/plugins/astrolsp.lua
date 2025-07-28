@@ -108,8 +108,10 @@ return {
           cond = "textDocument/typeDefinition",
         },
         gr = {
-          function() vim.lsp.buf.references() end,
-          desc = "Show references",
+          function() 
+            require("go_filter_manager").filtered_references()
+          end,
+          desc = "Show references (filtered)",
           cond = "textDocument/references",
         },
         K = {
