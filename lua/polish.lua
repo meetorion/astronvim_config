@@ -4,6 +4,9 @@
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
+-- Set Python 3 host program to use conda environment
+vim.g.python3_host_prog = vim.fn.expand('~/miniconda3/envs/arch/bin/python')
+
 -- Configure clipboard provider
 if vim.fn.has('wsl') == 1 then
   vim.g.clipboard = {
