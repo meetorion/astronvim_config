@@ -73,7 +73,7 @@ function M.setup()
     end,
   })
   
-  vim.notify("🚀 Go LSP 过滤覆盖已启用", vim.log.levels.INFO)
+  vim.notify("🚀 Go LSP 过滤覆盖已启用", vim.log.levels.DEBUG)
 end
 
 return M
