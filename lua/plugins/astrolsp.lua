@@ -47,6 +47,12 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      gopls = {
+        root_dir = function(fname)
+          local util = require "lspconfig.util"
+          return util.root_pattern("go.work", "go.mod", ".git")(fname) or util.path.dirname(fname)
+        end,
+      },
     },
     -- customize how language servers are attached
     handlers = {

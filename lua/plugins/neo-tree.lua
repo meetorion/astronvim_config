@@ -69,11 +69,10 @@ return {
         ["H"] = "toggle_hidden",
         -- Add refresh
         ["R"] = "refresh",
-        -- Add git status toggle
-        ["g"] = {
-          "toggle_git_status",
-          desc = "Toggle git status"
-        },
+        -- Switch to git status source
+        ["g"] = function()
+          vim.cmd("Neotree git_status")
+        end,
       },
     },
     
